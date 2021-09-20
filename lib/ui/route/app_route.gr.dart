@@ -18,7 +18,7 @@ class AppRouter extends _i1.RootStackRouter {
   final Map<String, _i1.PageFactory> pagesMap = {
     IndexRoute.name: (routeData) {
       return _i1.MaterialPageX<dynamic>(
-          routeData: routeData, child: _i3.IndexPage());
+          routeData: routeData, child: const _i3.IndexPage());
     },
     PostRoute.name: (routeData) {
       return _i1.MaterialPageX<dynamic>(
