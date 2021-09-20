@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:otolog/ui/my_home_page.dart';
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class App extends StatelessWidget {
+  const App({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
   @override
