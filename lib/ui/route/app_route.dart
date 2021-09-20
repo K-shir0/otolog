@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:otolog/ui/post_page.dart';
 
-import '../home_page.dart';
 import '../index_page.dart';
 
 @MaterialAutoRouter(

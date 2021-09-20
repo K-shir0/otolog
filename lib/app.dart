@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:otolog/ui/route/app_route.gr.dart';
+
+import 'ui/route/app_route.gr.dart';
 
 class App extends StatelessWidget {
   App({Key? key}) : super(key: key);
