@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:otolog/ui/my_home_page.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:otolog/ui/route/app_route.gr.dart';
 
 class App extends StatelessWidget {
-  const App({Key? key}) : super(key: key);
+  App({Key? key}) : super(key: key);
+
+  final _appRouter = AppRouter();
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.
@@ -21,7 +24,8 @@ class App extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      routeInformationParser: _appRouter.defaultRouteParser(),
+      routerDelegate: _appRouter.delegate(),
     );
   }
 }
