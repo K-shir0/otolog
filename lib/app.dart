@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:otolog/gen/fonts.gen.dart';
 
 import 'ui/route/app_route.gr.dart';
 
@@ -13,6 +14,7 @@ class App extends StatelessWidget {
     return MaterialApp.router(
       title: 'Flutter Demo',
       theme: ThemeData(
+        fontFamily: FontFamily.notoSansJP,
         textTheme: TextTheme(
           bodyText2: Theme.of(context).textTheme.bodyText2?.copyWith(
             fontSize: 16,
