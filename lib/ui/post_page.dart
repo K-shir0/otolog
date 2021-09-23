@@ -90,20 +90,6 @@ class PostPage extends HookWidget {
                 height: 1,
                 color: Theme.of(context).dividerColor,
               ),
-              // Padding(
-              //   padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
-              //   child: TextFormField(
-              //     decoration: const InputDecoration(
-              //       hintText: 'スコアを入力',
-              //       border: InputBorder.none,
-              //       enabledBorder: InputBorder.none,
-              //     ),
-              //   ),
-              // ),
-              // Container(
-              //   height: 1,
-              //   color: Theme.of(context).dividerColor,
-              // ),
             ],
           ),
         ],
