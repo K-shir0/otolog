@@ -7,7 +7,18 @@ class PostPage extends HookWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        actions: [
+          TextButton(
+            onPressed: () {},
+            child: const Text(
+              '保存',
+              style:
+                  TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+            ),
+          )
+        ],
+      ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
