@@ -77,7 +77,10 @@ class PostPage extends HookWidget {
                     Card(
                       child: Padding(
                         padding: const EdgeInsets.all(4.0),
-                        child: Text('フルコンボ', style: Theme.of(context).textTheme.caption,),
+                        child: Text(
+                          'フルコンボ',
+                          style: Theme.of(context).textTheme.caption,
+                        ),
                       ),
                     )
                   ],
