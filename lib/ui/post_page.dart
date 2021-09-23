@@ -24,10 +24,10 @@ class PostPage extends HookWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(8, 16, 8, 16),
+                padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
                 child: TextFormField(
                   minLines: 3,
-                  maxLines: null,
+                  maxLines: 3,
                   decoration: const InputDecoration(
                     hintText: 'キャプションを書く',
                     border: InputBorder.none,
