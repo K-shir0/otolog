@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
@@ -15,8 +16,13 @@ class ThreadCreatePage extends HookWidget {
             children: [
               InkWell(
                 customBorder: const CircleBorder(),
-                onTap: () {},
-                child: const Icon(Icons.close),
+                onTap: () {
+                  AutoRouter.of(context).pop();
+                },
+                child: const Padding(
+                  padding: EdgeInsets.fromLTRB(0, 8, 0, 8),
+                  child: Icon(Icons.close),
+                ),
               ),
               const Text('スレッドを作成'),
               TextFormField(),
