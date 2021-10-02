@@ -14,13 +14,14 @@ class ThreadCreatePage extends HookWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              // TODO(k-shir0): 押した時のエフェクトがずれているのを修正.
               InkWell(
                 customBorder: const CircleBorder(),
                 onTap: () {
                   AutoRouter.of(context).pop();
                 },
                 child: const Padding(
-                  padding: EdgeInsets.fromLTRB(0, 8, 0, 8),
+                  padding: EdgeInsets.fromLTRB(0, 8, 8, 8),
                   child: Icon(Icons.close),
                 ),
               ),
