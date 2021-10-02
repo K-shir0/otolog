@@ -22,9 +22,9 @@ class _$PostTearOff {
   const _$PostTearOff();
 
   _Post call(
-      {@HiveField(0) required String id,
-      @HiveField(1) String caption = '',
-      @HiveField(2) List<String> tags = const []}) {
+      {required String id,
+      String caption = '',
+      List<String> tags = const <List<String>>[]}) {
     return _Post(
       id: id,
       caption: caption,
@@ -42,11 +42,8 @@ const $Post = _$PostTearOff();
 
 /// @nodoc
 mixin _$Post {
-  @HiveField(0)
   String get id => throw _privateConstructorUsedError;
-  @HiveField(1)
   String get caption => throw _privateConstructorUsedError;
-  @HiveField(2)
   List<String> get tags => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -58,10 +55,8 @@ mixin _$Post {
 abstract class $PostCopyWith<$Res> {
   factory $PostCopyWith(Post value, $Res Function(Post) then) =
       _$PostCopyWithImpl<$Res>;
-  $Res call(
-      {@HiveField(0) String id,
-      @HiveField(1) String caption,
-      @HiveField(2) List<String> tags});
+
+  $Res call({String id, String caption, List<String> tags});
 }
 
 /// @nodoc
@@ -99,11 +94,9 @@ class _$PostCopyWithImpl<$Res> implements $PostCopyWith<$Res> {
 abstract class _$PostCopyWith<$Res> implements $PostCopyWith<$Res> {
   factory _$PostCopyWith(_Post value, $Res Function(_Post) then) =
       __$PostCopyWithImpl<$Res>;
+
   @override
-  $Res call(
-      {@HiveField(0) String id,
-      @HiveField(1) String caption,
-      @HiveField(2) List<String> tags});
+  $Res call({String id, String caption, List<String> tags});
 }
 
 /// @nodoc
@@ -140,25 +133,21 @@ class __$PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-@HiveType(typeId: 0, adapterName: 'PostAdapter')
 class _$_Post with DiagnosticableTreeMixin implements _Post {
   const _$_Post(
-      {@HiveField(0) required this.id,
-      @HiveField(1) this.caption = '',
-      @HiveField(2) this.tags = const []});
+      {required this.id,
+      this.caption = '',
+      this.tags = const <List<String>>[]});
 
   factory _$_Post.fromJson(Map<String, dynamic> json) => _$$_PostFromJson(json);
 
   @override
-  @HiveField(0)
   final String id;
   @JsonKey(defaultValue: '')
   @override
-  @HiveField(1)
   final String caption;
-  @JsonKey(defaultValue: const [])
+  @JsonKey(defaultValue: const <List<String>>[])
   @override
-  @HiveField(2)
   final List<String> tags;
 
   @override
@@ -208,22 +197,20 @@ class _$_Post with DiagnosticableTreeMixin implements _Post {
 }
 
 abstract class _Post implements Post {
-  const factory _Post(
-      {@HiveField(0) required String id,
-      @HiveField(1) String caption,
-      @HiveField(2) List<String> tags}) = _$_Post;
+  const factory _Post({required String id, String caption, List<String> tags}) =
+      _$_Post;
 
   factory _Post.fromJson(Map<String, dynamic> json) = _$_Post.fromJson;
 
   @override
-  @HiveField(0)
   String get id => throw _privateConstructorUsedError;
+
   @override
-  @HiveField(1)
   String get caption => throw _privateConstructorUsedError;
+
   @override
-  @HiveField(2)
   List<String> get tags => throw _privateConstructorUsedError;
+
   @override
   @JsonKey(ignore: true)
   _$PostCopyWith<_Post> get copyWith => throw _privateConstructorUsedError;
