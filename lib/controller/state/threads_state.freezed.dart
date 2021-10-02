@@ -40,7 +40,6 @@ mixin _$ThreadsState {
   List<Thread> get threads => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
   @JsonKey(ignore: true)
   $ThreadsStateCopyWith<ThreadsState> get copyWith =>
       throw _privateConstructorUsedError;
@@ -51,7 +50,6 @@ abstract class $ThreadsStateCopyWith<$Res> {
   factory $ThreadsStateCopyWith(
           ThreadsState value, $Res Function(ThreadsState) then) =
       _$ThreadsStateCopyWithImpl<$Res>;
-
   $Res call({List<Thread> threads});
 }
 
@@ -60,7 +58,6 @@ class _$ThreadsStateCopyWithImpl<$Res> implements $ThreadsStateCopyWith<$Res> {
   _$ThreadsStateCopyWithImpl(this._value, this._then);
 
   final ThreadsState _value;
-
   // ignore: unused_field
   final $Res Function(ThreadsState) _then;
 
@@ -83,7 +80,6 @@ abstract class _$ThreadsStateCopyWith<$Res>
   factory _$ThreadsStateCopyWith(
           _ThreadsState value, $Res Function(_ThreadsState) then) =
       __$ThreadsStateCopyWithImpl<$Res>;
-
   @override
   $Res call({List<Thread> threads});
 }
@@ -167,7 +163,6 @@ abstract class _ThreadsState implements ThreadsState {
 
   @override
   List<Thread> get threads => throw _privateConstructorUsedError;
-
   @override
   @JsonKey(ignore: true)
   _$ThreadsStateCopyWith<_ThreadsState> get copyWith =>

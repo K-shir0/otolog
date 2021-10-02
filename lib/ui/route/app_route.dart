@@ -1,12 +1,13 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:otolog/ui/post_page.dart';
+import 'package:otolog/ui/thread_create_page.dart';
 
 import '../index_page.dart';
 import '../thread_list_page.dart';
 
 @MaterialAutoRouter(
   replaceInRouteName: 'Page,Route',
-  routes: <AutoRoute<String>>[
+  routes: [
     AutoRoute(
       path: '/',
       page: IndexPage,
@@ -19,6 +20,10 @@ import '../thread_list_page.dart';
     AutoRoute(
       path: '/threads',
       page: ThreadListPage,
+    ),
+    AutoRoute(
+      path: '/threads/create',
+      page: ThreadCreatePage,
     ),
   ],
 )
