@@ -10,17 +10,33 @@ class IndexPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(),
       body: Wrap(
-        children: [
-          GestureDetector(
-            onTap: () => AutoRouter.of(context).pushNamed('/post'),
-            child: const Card(
-              child: Padding(
-                padding: EdgeInsets.all(8),
-                child: Text('投稿'),
-              ),
-            ),
-          )
+        children: const [
+          IndexLink(data: '投稿', route: '/post'),
         ],
+      ),
+    );
+  }
+}
+
+class IndexLink extends StatelessWidget {
+  const IndexLink({
+    Key? key,
+    required this.data,
+    required this.route,
+  }) : super(key: key);
+
+  final String data;
+  final String route;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () => AutoRouter.of(context).pushNamed(route),
+      child: Card(
+        child: Padding(
+          padding: const EdgeInsets.all(8),
+          child: Text(data),
+        ),
       ),
     );
   }
