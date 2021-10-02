@@ -57,11 +57,17 @@ class PostPage extends HookWidget {
                   ),
                   Padding(
                     padding: const EdgeInsets.fromLTRB(8, 16, 8, 16),
+                    // TODO(k-shir0): クリックできるようにする.
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: const [
-                        Text('スレッド'),
-                        Icon(
+                      children: [
+                        Column(
+                          children: const [
+                            Text('スレッド'),
+                            SizedBox(height: 2),
+                          ],
+                        ),
+                        const Icon(
                           Icons.arrow_forward_ios,
                           size: 16,
                         ),
@@ -72,6 +78,7 @@ class PostPage extends HookWidget {
                     height: 1,
                     color: Theme.of(context).dividerColor,
                   ),
+                  // TODO(k-shir0): クリックできるようにする.
                   Padding(
                     padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
                     child: Column(
@@ -81,9 +88,14 @@ class PostPage extends HookWidget {
                           padding: const EdgeInsets.fromLTRB(0, 8, 0, 8),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: const [
-                              Text('タグ付け'),
-                              Icon(
+                            children: [
+                              Column(
+                                children: const [
+                                  Text('タグ付け'),
+                                  SizedBox(height: 4),
+                                ],
+                              ),
+                              const Icon(
                                 Icons.arrow_forward_ios,
                                 size: 16,
                               ),
