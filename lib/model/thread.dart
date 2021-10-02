@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 part 'thread.freezed.dart';
 part 'thread.g.dart';
 
@@ -7,7 +8,8 @@ part 'thread.g.dart';
 class Thread with _$Thread {
   const factory Thread({
     required String id,
-    @Default('') String name,
+    @Default('') String title,
+    @Default('') String? src,
   }) = _Thread;
 
  factory Thread.fromJson(Map<String, dynamic> json) => _$ThreadFromJson(json);
