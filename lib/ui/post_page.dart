@@ -104,7 +104,7 @@ class PostPage extends HookWidget {
                         ),
                         Card(
                           child: Padding(
-                            padding: const EdgeInsets.all(4.0),
+                            padding: const EdgeInsets.all(4),
                             child: Text(
                               'フルコンボ',
                               style: Theme.of(context).textTheme.caption,

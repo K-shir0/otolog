@@ -15,7 +15,7 @@ class IndexPage extends StatelessWidget {
             onTap: () => AutoRouter.of(context).pushNamed('/post'),
             child: const Card(
               child: Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(8),
                 child: Text('投稿'),
               ),
             ),
