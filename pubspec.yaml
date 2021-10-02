@@ -36,6 +36,7 @@ dependencies:
   gap: ^2.0.0
   hooks_riverpod: ^0.14.0+5
   image_picker: ^0.8.4+2
+  uuid: ^3.0.4
 
 
 dev_dependencies:
