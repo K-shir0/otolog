@@ -20,8 +20,8 @@ class App extends StatelessWidget {
           ),
           caption: Theme.of(context).textTheme.caption?.copyWith(
             fontSize: 14,
-            color: Theme.of(context).textTheme.bodyText2?.color
-          ),
+            // color: Theme.of(context).textTheme.bodyText2?.color
+              ),
       ),
         primarySwatch: Colors.blue,
       ),
