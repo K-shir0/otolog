@@ -40,13 +40,10 @@ const $Thread = _$ThreadTearOff();
 /// @nodoc
 mixin _$Thread {
   String get id => throw _privateConstructorUsedError;
-
   String get title => throw _privateConstructorUsedError;
-
   String? get src => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
   @JsonKey(ignore: true)
   $ThreadCopyWith<Thread> get copyWith => throw _privateConstructorUsedError;
 }
@@ -55,7 +52,6 @@ mixin _$Thread {
 abstract class $ThreadCopyWith<$Res> {
   factory $ThreadCopyWith(Thread value, $Res Function(Thread) then) =
       _$ThreadCopyWithImpl<$Res>;
-
   $Res call({String id, String title, String? src});
 }
 
@@ -94,7 +90,6 @@ class _$ThreadCopyWithImpl<$Res> implements $ThreadCopyWith<$Res> {
 abstract class _$ThreadCopyWith<$Res> implements $ThreadCopyWith<$Res> {
   factory _$ThreadCopyWith(_Thread value, $Res Function(_Thread) then) =
       __$ThreadCopyWithImpl<$Res>;
-
   @override
   $Res call({String id, String title, String? src});
 }
@@ -201,13 +196,10 @@ abstract class _Thread implements Thread {
 
   @override
   String get id => throw _privateConstructorUsedError;
-
   @override
   String get title => throw _privateConstructorUsedError;
-
   @override
   String? get src => throw _privateConstructorUsedError;
-
   @override
   @JsonKey(ignore: true)
   _$ThreadCopyWith<_Thread> get copyWith => throw _privateConstructorUsedError;

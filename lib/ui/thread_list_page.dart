@@ -1,25 +1,43 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:otolog/controller/state/threads_state.dart';
+import 'package:otolog/controller/threads_controller.dart';
 import 'package:otolog/model/thread.dart';
 
+final _threadsStateProvider =
+    StateNotifierProvider<ThreadsController, ThreadsState>(
+  (_) => ThreadsController(
+    const ThreadsState(threads: []),
+  ),
+);
+
+/// スレッド一覧ページ.
 class ThreadListPage extends HookWidget {
   const ThreadListPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final _state = useProvider(_threadsStateProvider);
+
+    /// スレッド一覧を作成.
+    final _threadItems = _state.threads
+        .map(
+          (thread) => ThreadItem(
+            thread: thread,
+          ),
+        )
+        .toList();
+
     return Scaffold(
       appBar: AppBar(),
 
       /// スレッド一覧.
       body: Column(
-        children: const [
+        children: [
           // TODO(k-shir0): 追加するボタンを作成する.
-          ThreadItem(
-            thread: Thread(
-              id: '1',
-              title: 'スレッドのタイトル',
-            ),
-          ),
+          // TODO(k-shir0): 空のときの処理.
+          ..._threadItems
         ],
       ),
     );

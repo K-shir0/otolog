@@ -12,8 +12,7 @@ _$_Thread _$$_ThreadFromJson(Map<String, dynamic> json) => _$_Thread(
       src: json['src'] as String? ?? '',
     );
 
-Map<String, dynamic> _$$_ThreadToJson(_$_Thread instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$$_ThreadToJson(_$_Thread instance) => <String, dynamic>{
       'id': instance.id,
       'title': instance.title,
       'src': instance.src,

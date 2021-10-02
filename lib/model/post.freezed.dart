@@ -55,7 +55,6 @@ mixin _$Post {
 abstract class $PostCopyWith<$Res> {
   factory $PostCopyWith(Post value, $Res Function(Post) then) =
       _$PostCopyWithImpl<$Res>;
-
   $Res call({String id, String caption, List<String> tags});
 }
 
@@ -94,7 +93,6 @@ class _$PostCopyWithImpl<$Res> implements $PostCopyWith<$Res> {
 abstract class _$PostCopyWith<$Res> implements $PostCopyWith<$Res> {
   factory _$PostCopyWith(_Post value, $Res Function(_Post) then) =
       __$PostCopyWithImpl<$Res>;
-
   @override
   $Res call({String id, String caption, List<String> tags});
 }
@@ -204,13 +202,10 @@ abstract class _Post implements Post {
 
   @override
   String get id => throw _privateConstructorUsedError;
-
   @override
   String get caption => throw _privateConstructorUsedError;
-
   @override
   List<String> get tags => throw _privateConstructorUsedError;
-
   @override
   @JsonKey(ignore: true)
   _$PostCopyWith<_Post> get copyWith => throw _privateConstructorUsedError;
