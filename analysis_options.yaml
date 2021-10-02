@@ -8,7 +8,7 @@ linter:
 
 analyzer:
   exclude:
-    - "lib/ui/route/*"
+#    - "lib/ui/route/*"
     - "**/*.g.dart"
     - "**/*.freezed.dart"
     - "**/*.gr.dart"
