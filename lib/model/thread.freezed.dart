@@ -21,10 +21,11 @@ Thread _$ThreadFromJson(Map<String, dynamic> json) {
 class _$ThreadTearOff {
   const _$ThreadTearOff();
 
-  _Thread call({required String id, String name = ''}) {
+  _Thread call({required String id, String title = '', String? src = ''}) {
     return _Thread(
       id: id,
-      name: name,
+      title: title,
+      src: src,
     );
   }
 
@@ -39,9 +40,13 @@ const $Thread = _$ThreadTearOff();
 /// @nodoc
 mixin _$Thread {
   String get id => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
+
+  String get title => throw _privateConstructorUsedError;
+
+  String? get src => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
   @JsonKey(ignore: true)
   $ThreadCopyWith<Thread> get copyWith => throw _privateConstructorUsedError;
 }
@@ -50,7 +55,8 @@ mixin _$Thread {
 abstract class $ThreadCopyWith<$Res> {
   factory $ThreadCopyWith(Thread value, $Res Function(Thread) then) =
       _$ThreadCopyWithImpl<$Res>;
-  $Res call({String id, String name});
+
+  $Res call({String id, String title, String? src});
 }
 
 /// @nodoc
@@ -64,17 +70,22 @@ class _$ThreadCopyWithImpl<$Res> implements $ThreadCopyWith<$Res> {
   @override
   $Res call({
     Object? id = freezed,
-    Object? name = freezed,
+    Object? title = freezed,
+    Object? src = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      title: title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String,
+      src: src == freezed
+          ? _value.src
+          : src // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -83,8 +94,9 @@ class _$ThreadCopyWithImpl<$Res> implements $ThreadCopyWith<$Res> {
 abstract class _$ThreadCopyWith<$Res> implements $ThreadCopyWith<$Res> {
   factory _$ThreadCopyWith(_Thread value, $Res Function(_Thread) then) =
       __$ThreadCopyWithImpl<$Res>;
+
   @override
-  $Res call({String id, String name});
+  $Res call({String id, String title, String? src});
 }
 
 /// @nodoc
@@ -99,17 +111,22 @@ class __$ThreadCopyWithImpl<$Res> extends _$ThreadCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
-    Object? name = freezed,
+    Object? title = freezed,
+    Object? src = freezed,
   }) {
     return _then(_Thread(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      title: title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String,
+      src: src == freezed
+          ? _value.src
+          : src // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -117,7 +134,7 @@ class __$ThreadCopyWithImpl<$Res> extends _$ThreadCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Thread with DiagnosticableTreeMixin implements _Thread {
-  const _$_Thread({required this.id, this.name = ''});
+  const _$_Thread({required this.id, this.title = '', this.src = ''});
 
   factory _$_Thread.fromJson(Map<String, dynamic> json) =>
       _$$_ThreadFromJson(json);
@@ -126,11 +143,14 @@ class _$_Thread with DiagnosticableTreeMixin implements _Thread {
   final String id;
   @JsonKey(defaultValue: '')
   @override
-  final String name;
+  final String title;
+  @JsonKey(defaultValue: '')
+  @override
+  final String? src;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Thread(id: $id, name: $name)';
+    return 'Thread(id: $id, title: $title, src: $src)';
   }
 
   @override
@@ -139,7 +159,8 @@ class _$_Thread with DiagnosticableTreeMixin implements _Thread {
     properties
       ..add(DiagnosticsProperty('type', 'Thread'))
       ..add(DiagnosticsProperty('id', id))
-      ..add(DiagnosticsProperty('name', name));
+      ..add(DiagnosticsProperty('title', title))
+      ..add(DiagnosticsProperty('src', src));
   }
 
   @override
@@ -148,15 +169,18 @@ class _$_Thread with DiagnosticableTreeMixin implements _Thread {
         (other is _Thread &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)));
+            (identical(other.title, title) ||
+                const DeepCollectionEquality().equals(other.title, title)) &&
+            (identical(other.src, src) ||
+                const DeepCollectionEquality().equals(other.src, src)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(name);
+      const DeepCollectionEquality().hash(title) ^
+      const DeepCollectionEquality().hash(src);
 
   @JsonKey(ignore: true)
   @override
@@ -170,14 +194,20 @@ class _$_Thread with DiagnosticableTreeMixin implements _Thread {
 }
 
 abstract class _Thread implements Thread {
-  const factory _Thread({required String id, String name}) = _$_Thread;
+  const factory _Thread({required String id, String title, String? src}) =
+      _$_Thread;
 
   factory _Thread.fromJson(Map<String, dynamic> json) = _$_Thread.fromJson;
 
   @override
   String get id => throw _privateConstructorUsedError;
+
   @override
-  String get name => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
+
+  @override
+  String? get src => throw _privateConstructorUsedError;
+
   @override
   @JsonKey(ignore: true)
   _$ThreadCopyWith<_Thread> get copyWith => throw _privateConstructorUsedError;

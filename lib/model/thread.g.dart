@@ -8,10 +8,13 @@ part of 'thread.dart';
 
 _$_Thread _$$_ThreadFromJson(Map<String, dynamic> json) => _$_Thread(
       id: json['id'] as String,
-      name: json['name'] as String? ?? '',
+      title: json['title'] as String? ?? '',
+      src: json['src'] as String? ?? '',
     );
 
-Map<String, dynamic> _$$_ThreadToJson(_$_Thread instance) => <String, dynamic>{
+Map<String, dynamic> _$$_ThreadToJson(_$_Thread instance) =>
+    <String, dynamic>{
       'id': instance.id,
-      'name': instance.name,
+      'title': instance.title,
+      'src': instance.src,
     };
