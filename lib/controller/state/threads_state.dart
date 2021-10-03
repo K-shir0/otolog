@@ -1,9 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:otolog/model/thread.dart';
+import 'package:otolog/domain/thread/thread.dart';
 
 part 'threads_state.freezed.dart';
-
 part 'threads_state.g.dart';
 
 @freezed

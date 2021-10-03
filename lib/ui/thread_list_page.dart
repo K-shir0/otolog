@@ -4,7 +4,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:otolog/controller/state/threads_state.dart';
 import 'package:otolog/controller/threads_controller.dart';
-import 'package:otolog/model/thread.dart';
+import 'package:otolog/domain/thread/thread.dart';
 
 final _threadsStateProvider =
 StateNotifierProvider<ThreadsController, ThreadsState>(

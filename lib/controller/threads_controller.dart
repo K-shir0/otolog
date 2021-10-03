@@ -1,5 +1,5 @@
 import 'package:otolog/controller/state/threads_state.dart';
-import 'package:otolog/model/thread.dart';
+import 'package:otolog/domain/thread/thread.dart';
 import 'package:state_notifier/state_notifier.dart';
 import 'package:uuid/uuid.dart';
 

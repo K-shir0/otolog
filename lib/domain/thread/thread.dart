@@ -12,5 +12,5 @@ class Thread with _$Thread {
     @Default('') String? src,
   }) = _Thread;
 
- factory Thread.fromJson(Map<String, dynamic> json) => _$ThreadFromJson(json);
+  factory Thread.fromJson(Map<String, dynamic> json) => _$ThreadFromJson(json);
 }

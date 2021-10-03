@@ -11,7 +11,6 @@ analyzer:
     # Freezed がうまく動かないため.
     implicit-dynamic: true
   exclude:
-    #    - "lib/ui/route/*"
     - "**/*.g.dart"
     - "**/*.freezed.dart"
     - "**/*.gr.dart"
