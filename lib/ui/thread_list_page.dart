@@ -7,8 +7,8 @@ import 'package:otolog/controller/threads_controller.dart';
 import 'package:otolog/domain/thread/thread.dart';
 
 final _threadsStateProvider =
-StateNotifierProvider<ThreadsController, ThreadsState>(
-      (_) => ThreadsController(
+    StateNotifierProvider<ThreadsController, ThreadsState>(
+  (_) => ThreadsController(
     const ThreadsState(threads: []),
   ),
 );
@@ -25,9 +25,9 @@ class ThreadListPage extends HookWidget {
     final _threadItems = _state.threads
         .map(
           (thread) => ThreadItem(
-        thread: thread,
-      ),
-    )
+            thread: thread,
+          ),
+        )
         .toList();
 
     return Scaffold(
@@ -89,7 +89,6 @@ class ThreadItem extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-
             /// スレッドのサムネ.
             Container(
               height: 48,
@@ -100,7 +99,6 @@ class ThreadItem extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: const [
-
                 /// スレッドのタイトル.
                 Text('スレッドのタイトル'),
 

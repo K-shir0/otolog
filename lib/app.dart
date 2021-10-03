@@ -16,13 +16,13 @@ class App extends StatelessWidget {
         fontFamily: FontFamily.notoSansJP,
         textTheme: TextTheme(
           bodyText2: Theme.of(context).textTheme.bodyText2?.copyWith(
-            fontSize: 16,
-          ),
-          caption: Theme.of(context).textTheme.caption?.copyWith(
-            fontSize: 14,
-            // color: Theme.of(context).textTheme.bodyText2?.color
+                fontSize: 16,
               ),
-      ),
+          caption: Theme.of(context).textTheme.caption?.copyWith(
+                fontSize: 14,
+                // color: Theme.of(context).textTheme.bodyText2?.color
+              ),
+        ),
         primarySwatch: Colors.blue,
       ),
       routeInformationParser: _appRouter.defaultRouteParser(),
