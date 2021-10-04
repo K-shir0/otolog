@@ -43,13 +43,10 @@ const $Post = _$PostTearOff();
 /// @nodoc
 mixin _$Post {
   String get id => throw _privateConstructorUsedError;
-
   String get caption => throw _privateConstructorUsedError;
-
   List<String> get tags => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
   @JsonKey(ignore: true)
   $PostCopyWith<Post> get copyWith => throw _privateConstructorUsedError;
 }
@@ -58,7 +55,6 @@ mixin _$Post {
 abstract class $PostCopyWith<$Res> {
   factory $PostCopyWith(Post value, $Res Function(Post) then) =
       _$PostCopyWithImpl<$Res>;
-
   $Res call({String id, String caption, List<String> tags});
 }
 
@@ -67,7 +63,6 @@ class _$PostCopyWithImpl<$Res> implements $PostCopyWith<$Res> {
   _$PostCopyWithImpl(this._value, this._then);
 
   final Post _value;
-
   // ignore: unused_field
   final $Res Function(Post) _then;
 
@@ -98,7 +93,6 @@ class _$PostCopyWithImpl<$Res> implements $PostCopyWith<$Res> {
 abstract class _$PostCopyWith<$Res> implements $PostCopyWith<$Res> {
   factory _$PostCopyWith(_Post value, $Res Function(_Post) then) =
       __$PostCopyWithImpl<$Res>;
-
   @override
   $Res call({String id, String caption, List<String> tags});
 }
@@ -208,13 +202,10 @@ abstract class _Post implements Post {
 
   @override
   String get id => throw _privateConstructorUsedError;
-
   @override
   String get caption => throw _privateConstructorUsedError;
-
   @override
   List<String> get tags => throw _privateConstructorUsedError;
-
   @override
   @JsonKey(ignore: true)
   _$PostCopyWith<_Post> get copyWith => throw _privateConstructorUsedError;

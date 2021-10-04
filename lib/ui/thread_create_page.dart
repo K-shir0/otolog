@@ -1,12 +1,16 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:otolog/state_model/threads_controller.dart';
 
 class ThreadCreatePage extends HookWidget {
   const ThreadCreatePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final notifier = useProvider(threadsStateProvider.notifier);
+
     return SafeArea(
       child: Scaffold(
         body: Padding(
@@ -27,8 +31,12 @@ class ThreadCreatePage extends HookWidget {
               ),
               const Text('スレッドを作成'),
               TextFormField(),
+
+              /// 作成ボタン
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  notifier.add(title: 'test');
+                },
                 child: const SizedBox(
                   width: double.infinity,
                   child: Text(
