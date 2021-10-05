@@ -15,17 +15,6 @@ class ThreadListPage extends HookWidget {
   Widget build(BuildContext context) {
     final threadList = useProvider(threadsStateProvider);
 
-    /// スレッド一覧を作成.
-    // final List<Widget> _threadItems = state.whenData(
-    //   (value) => value
-    //       .map(
-    //         (thread) => ThreadItem(
-    //           thread: thread,
-    //         ),
-    //       )
-    //       .toList(),
-    // );
-
     return Scaffold(
       appBar: AppBar(),
 
