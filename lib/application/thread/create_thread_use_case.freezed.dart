@@ -40,11 +40,9 @@ const $CreateThreadUseCaseParam = _$CreateThreadUseCaseParamTearOff();
 /// @nodoc
 mixin _$CreateThreadUseCaseParam {
   String get title => throw _privateConstructorUsedError;
-
   String? get src => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
   @JsonKey(ignore: true)
   $CreateThreadUseCaseParamCopyWith<CreateThreadUseCaseParam> get copyWith =>
       throw _privateConstructorUsedError;
@@ -55,7 +53,6 @@ abstract class $CreateThreadUseCaseParamCopyWith<$Res> {
   factory $CreateThreadUseCaseParamCopyWith(CreateThreadUseCaseParam value,
           $Res Function(CreateThreadUseCaseParam) then) =
       _$CreateThreadUseCaseParamCopyWithImpl<$Res>;
-
   $Res call({String title, String? src});
 }
 
@@ -65,7 +62,6 @@ class _$CreateThreadUseCaseParamCopyWithImpl<$Res>
   _$CreateThreadUseCaseParamCopyWithImpl(this._value, this._then);
 
   final CreateThreadUseCaseParam _value;
-
   // ignore: unused_field
   final $Res Function(CreateThreadUseCaseParam) _then;
 
@@ -93,7 +89,6 @@ abstract class _$CreateThreadUseCaseParamCopyWith<$Res>
   factory _$CreateThreadUseCaseParamCopyWith(_CreateThreadUseCaseParam value,
           $Res Function(_CreateThreadUseCaseParam) then) =
       __$CreateThreadUseCaseParamCopyWithImpl<$Res>;
-
   @override
   $Res call({String title, String? src});
 }
@@ -183,10 +178,8 @@ abstract class _CreateThreadUseCaseParam implements CreateThreadUseCaseParam {
 
   @override
   String get title => throw _privateConstructorUsedError;
-
   @override
   String? get src => throw _privateConstructorUsedError;
-
   @override
   @JsonKey(ignore: true)
   _$CreateThreadUseCaseParamCopyWith<_CreateThreadUseCaseParam> get copyWith =>

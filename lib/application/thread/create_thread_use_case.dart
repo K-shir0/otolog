@@ -7,7 +7,6 @@ import 'package:otolog/infrastructure/database/in_memory_thread_database.dart';
 import 'package:uuid/uuid.dart';
 
 part 'create_thread_use_case.freezed.dart';
-
 part 'create_thread_use_case.g.dart';
 
 @freezed
@@ -39,6 +38,10 @@ class CreateThreadUseCase
   @override
   Thread call(CreateThreadUseCaseParam param) {
     const _uuid = Uuid();
+
+    if (param.title.isEmpty) {
+      throw Exception('error with no title set');
+    }
 
     final thread = Thread(
       id: _uuid.v4(),

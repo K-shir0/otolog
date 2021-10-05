@@ -5,6 +5,8 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:otolog/domain/thread/thread.dart';
 import 'package:otolog/state_model/threads_controller.dart';
 
+import 'component/default_container.dart';
+
 /// スレッド一覧ページ.
 class ThreadListPage extends HookWidget {
   const ThreadListPage({Key? key}) : super(key: key);
@@ -59,22 +61,20 @@ class ThreadListPage extends HookWidget {
                 ),
               ),
             ),
-            ...state.when(
-              data: (data) {
-                return data
-                    .map(
-                      (thread) => ThreadItem(
-                        // TODO(k-shir0): キーをセットする.
-                        thread: thread,
-                      ),
-                    )
-                    .toList();
-              },
-              loading: () {
-                return [Container()];
-              },
-              error: (_, __) {
-                return [Container()];
+            DefaultContainer(
+              entities: [state],
+              builder: (_) {
+                return ListView.builder(
+                  /// 親の ListView でスクロールさせるようにする.
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount: state.entity!.length,
+                  itemBuilder: (context, index) {
+                    final thread = state.entity![index];
+
+                    return ThreadItem(thread: thread);
+                  },
+                );
               },
             ),
           ],
@@ -111,9 +111,9 @@ class ThreadItem extends StatelessWidget {
             const SizedBox(width: 8),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
+              children: [
                 /// スレッドのタイトル.
-                Text('スレッドのタイトル'),
+                Text(thread.title),
 
                 // TODO(k-shir0): 最新の投稿が表示されるようにする.
                 /// スレッドのサブタイトル.
