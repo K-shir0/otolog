@@ -13,7 +13,7 @@ class ThreadListPage extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final state = useProvider(threadsStateProvider);
+    final threadList = useProvider(threadsStateProvider);
 
     /// スレッド一覧を作成.
     // final List<Widget> _threadItems = state.whenData(
@@ -62,15 +62,15 @@ class ThreadListPage extends HookWidget {
               ),
             ),
             DefaultContainer(
-              entities: [state],
+              entities: [threadList],
               builder: (_) {
                 return ListView.builder(
                   /// 親の ListView でスクロールさせるようにする.
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
-                  itemCount: state.entity!.length,
+                  itemCount: threadList.entity!.length,
                   itemBuilder: (context, index) {
-                    final thread = state.entity![index];
+                    final thread = threadList.entity![index];
 
                     return ThreadItem(thread: thread);
                   },
