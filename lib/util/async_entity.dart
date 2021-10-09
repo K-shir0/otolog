@@ -3,6 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'async_entity.freezed.dart';
 
+/// state_model 以外で使用しないでください.
 @freezed
 class AsyncEntity<T> with _$AsyncEntity<T> {
   const factory AsyncEntity({

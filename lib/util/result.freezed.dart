@@ -23,9 +23,9 @@ class _$ResultTearOff {
     );
   }
 
-  Failure<T> failure<T>(Error error) {
+  Failure<T> failure<T>(Exception exception) {
     return Failure<T>(
-      error,
+      exception,
     );
   }
 }
@@ -38,39 +38,34 @@ mixin _$Result<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(T value) success,
-    required TResult Function(Error error) failure,
+    required TResult Function(Exception exception) failure,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(T value)? success,
-    TResult Function(Error error)? failure,
+    TResult Function(Exception exception)? failure,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T value)? success,
-    TResult Function(Error error)? failure,
+    TResult Function(Exception exception)? failure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Success<T> value) success,
     required TResult Function(Failure<T> value) failure,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Success<T> value)? success,
     TResult Function(Failure<T> value)? failure,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Success<T> value)? success,
@@ -91,7 +86,6 @@ class _$ResultCopyWithImpl<T, $Res> implements $ResultCopyWith<T, $Res> {
   _$ResultCopyWithImpl(this._value, this._then);
 
   final Result<T> _value;
-
   // ignore: unused_field
   final $Res Function(Result<T>) _then;
 }
@@ -100,7 +94,6 @@ class _$ResultCopyWithImpl<T, $Res> implements $ResultCopyWith<T, $Res> {
 abstract class $SuccessCopyWith<T, $Res> {
   factory $SuccessCopyWith(Success<T> value, $Res Function(Success<T>) then) =
       _$SuccessCopyWithImpl<T, $Res>;
-
   $Res call({T value});
 }
 
@@ -168,7 +161,7 @@ class _$Success<T> with DiagnosticableTreeMixin implements Success<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(T value) success,
-    required TResult Function(Error error) failure,
+    required TResult Function(Exception exception) failure,
   }) {
     return success(value);
   }
@@ -177,7 +170,7 @@ class _$Success<T> with DiagnosticableTreeMixin implements Success<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(T value)? success,
-    TResult Function(Error error)? failure,
+    TResult Function(Exception exception)? failure,
   }) {
     return success?.call(value);
   }
@@ -186,7 +179,7 @@ class _$Success<T> with DiagnosticableTreeMixin implements Success<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T value)? success,
-    TResult Function(Error error)? failure,
+    TResult Function(Exception exception)? failure,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -231,7 +224,6 @@ abstract class Success<T> implements Result<T> {
   const factory Success(T value) = _$Success<T>;
 
   T get value => throw _privateConstructorUsedError;
-
   @JsonKey(ignore: true)
   $SuccessCopyWith<T, Success<T>> get copyWith =>
       throw _privateConstructorUsedError;
@@ -241,8 +233,9 @@ abstract class Success<T> implements Result<T> {
 abstract class $FailureCopyWith<T, $Res> {
   factory $FailureCopyWith(Failure<T> value, $Res Function(Failure<T>) then) =
       _$FailureCopyWithImpl<T, $Res>;
+  $Res call({Exception exception});
 
-  $Res call({Error error});
+  $ExceptionCopyWith<$Res> get exception;
 }
 
 /// @nodoc
@@ -256,28 +249,35 @@ class _$FailureCopyWithImpl<T, $Res> extends _$ResultCopyWithImpl<T, $Res>
 
   @override
   $Res call({
-    Object? error = freezed,
+    Object? exception = freezed,
   }) {
     return _then(Failure<T>(
-      error == freezed
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as Error,
+      exception == freezed
+          ? _value.exception
+          : exception // ignore: cast_nullable_to_non_nullable
+              as Exception,
     ));
+  }
+
+  @override
+  $ExceptionCopyWith<$Res> get exception {
+    return $ExceptionCopyWith<$Res>(_value.exception, (value) {
+      return _then(_value.copyWith(exception: value));
+    });
   }
 }
 
 /// @nodoc
 
 class _$Failure<T> with DiagnosticableTreeMixin implements Failure<T> {
-  const _$Failure(this.error);
+  const _$Failure(this.exception);
 
   @override
-  final Error error;
+  final Exception exception;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Result<$T>.failure(error: $error)';
+    return 'Result<$T>.failure(exception: $exception)';
   }
 
   @override
@@ -285,20 +285,21 @@ class _$Failure<T> with DiagnosticableTreeMixin implements Failure<T> {
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'Result<$T>.failure'))
-      ..add(DiagnosticsProperty('error', error));
+      ..add(DiagnosticsProperty('exception', exception));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is Failure<T> &&
-            (identical(other.error, error) ||
-                const DeepCollectionEquality().equals(other.error, error)));
+            (identical(other.exception, exception) ||
+                const DeepCollectionEquality()
+                    .equals(other.exception, exception)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(exception);
 
   @JsonKey(ignore: true)
   @override
@@ -309,29 +310,29 @@ class _$Failure<T> with DiagnosticableTreeMixin implements Failure<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(T value) success,
-    required TResult Function(Error error) failure,
+    required TResult Function(Exception exception) failure,
   }) {
-    return failure(error);
+    return failure(exception);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(T value)? success,
-    TResult Function(Error error)? failure,
+    TResult Function(Exception exception)? failure,
   }) {
-    return failure?.call(error);
+    return failure?.call(exception);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T value)? success,
-    TResult Function(Error error)? failure,
+    TResult Function(Exception exception)? failure,
     required TResult orElse(),
   }) {
     if (failure != null) {
-      return failure(error);
+      return failure(exception);
     }
     return orElse();
   }
@@ -369,10 +370,9 @@ class _$Failure<T> with DiagnosticableTreeMixin implements Failure<T> {
 }
 
 abstract class Failure<T> implements Result<T> {
-  const factory Failure(Error error) = _$Failure<T>;
+  const factory Failure(Exception exception) = _$Failure<T>;
 
-  Error get error => throw _privateConstructorUsedError;
-
+  Exception get exception => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $FailureCopyWith<T, Failure<T>> get copyWith =>
       throw _privateConstructorUsedError;

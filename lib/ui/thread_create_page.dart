@@ -14,6 +14,8 @@ class ThreadCreatePage extends HookWidget {
     final titleTextController = useTextEditingController();
     final formKey = GlobalKey<FormState>();
 
+    final errorMessage = useState<String?>(null);
+
     return SafeArea(
       child: Scaffold(
         body: Padding(
@@ -36,6 +38,8 @@ class ThreadCreatePage extends HookWidget {
                 ),
                 const Text('スレッドを作成'),
 
+                if (errorMessage.value != null) Text(errorMessage.value!),
+
                 /// タイトル.
                 TextFormField(
                   controller: titleTextController,
@@ -48,11 +52,14 @@ class ThreadCreatePage extends HookWidget {
                   onPressed: () {
                     formKey.currentState?.save();
 
-                    try {
-                      notifier.add(title: titleTextController.text);
-                    } on Exception catch (e) {
-                      print(e);
-                    }
+                    notifier.add(title: titleTextController.text).when(
+                      success: (_) {
+                        errorMessage.value = null;
+                      },
+                      failure: (e) {
+                        errorMessage.value = e.message;
+                      },
+                    );
                   },
                   child: const SizedBox(
                     width: double.infinity,

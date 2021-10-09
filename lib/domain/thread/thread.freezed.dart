@@ -129,8 +129,7 @@ class __$ThreadCopyWithImpl<$Res> extends _$ThreadCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Thread with DiagnosticableTreeMixin implements _Thread {
-  _$_Thread({required this.id, this.title = '', this.src})
-      : assert(title.isNotEmpty, 'title cannot be empty');
+  _$_Thread({required this.id, this.title = '', this.src});
 
   factory _$_Thread.fromJson(Map<String, dynamic> json) =>
       _$$_ThreadFromJson(json);

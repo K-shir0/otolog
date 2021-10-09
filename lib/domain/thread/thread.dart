@@ -6,7 +6,6 @@ part 'thread.g.dart';
 
 @freezed
 class Thread with _$Thread {
-  @Assert('title.isNotEmpty', 'title cannot be empty')
   factory Thread({
     required String id,
     @Default('') String title,

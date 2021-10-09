@@ -3,6 +3,7 @@ import 'package:otolog/application/thread/create_thread_use_case.dart';
 import 'package:otolog/application/thread/get_threads_use_case.dart';
 import 'package:otolog/domain/thread/thread.dart';
 import 'package:otolog/util/async_entity.dart';
+import 'package:otolog/util/result.dart';
 import 'package:state_notifier/state_notifier.dart';
 
 final threadsStateProvider = StateNotifierProvider.autoDispose<
@@ -35,14 +36,23 @@ class ThreadsController extends StateNotifier<AsyncEntity<List<Thread>>>
     );
   }
 
-  void add({required String title}) {
+  Result<Thread> add({required String title}) {
     /// スレッドを作成.
-    final thread = createThreadUseCase(CreateThreadUseCaseParam(title: title));
+    final result = createThreadUseCase(CreateThreadUseCaseParam(title: title))
+      ..when(
+        success: (thread) {
+          /// 状態に反映.
+          state = state.copyWith(
+            entity: [...?state.entity, thread],
+            fetch: FetchStatus.idle,
+          );
+        },
+        failure: (e) {
+          // ignore: avoid_print
+          print(e);
+        },
+      );
 
-    /// 状態に反映.
-    state = state.copyWith(
-      entity: [...?state.entity, thread],
-      fetch: FetchStatus.idle,
-    );
+    return result;
   }
 }
