@@ -11,6 +11,7 @@ import '../index_page.dart' as _i3;
 import '../post_page.dart' as _i4;
 import '../thread_create_page.dart' as _i6;
 import '../thread_list_page.dart' as _i5;
+import '../thread_page.dart' as _i7;
 
 class AppRouter extends _i1.RootStackRouter {
   AppRouter([_i2.GlobalKey<_i2.NavigatorState>? navigatorKey])
@@ -33,15 +34,21 @@ class AppRouter extends _i1.RootStackRouter {
     ThreadCreateRoute.name: (routeData) {
       return _i1.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i6.ThreadCreatePage());
+    },
+    ThreadRoute.name: (routeData) {
+      return _i1.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i7.ThreadPage());
     }
   };
 
   @override
-  List<_i1.RouteConfig> get routes => [
+  List<_i1.RouteConfig> get routes =>
+      [
         _i1.RouteConfig(IndexRoute.name, path: '/'),
         _i1.RouteConfig(PostRoute.name, path: '/post'),
         _i1.RouteConfig(ThreadListRoute.name, path: '/threads'),
-        _i1.RouteConfig(ThreadCreateRoute.name, path: '/threads/create')
+        _i1.RouteConfig(ThreadCreateRoute.name, path: '/threads/create'),
+        _i1.RouteConfig(ThreadRoute.name, path: '/threads/0')
       ];
 }
 
@@ -67,4 +74,10 @@ class ThreadCreateRoute extends _i1.PageRouteInfo<void> {
   const ThreadCreateRoute() : super(name, path: '/threads/create');
 
   static const String name = 'ThreadCreateRoute';
+}
+
+class ThreadRoute extends _i1.PageRouteInfo<void> {
+  const ThreadRoute() : super(name, path: '/threads/0');
+
+  static const String name = 'ThreadRoute';
 }

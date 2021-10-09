@@ -13,6 +13,7 @@ class IndexPage extends StatelessWidget {
         children: const [
           IndexLink(data: '投稿', route: '/post'),
           IndexLink(data: 'スレッド一覧', route: '/threads'),
+          IndexLink(data: 'スレッド', route: '/threads/0'),
         ],
       ),
     );
