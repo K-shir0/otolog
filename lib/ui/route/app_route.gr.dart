@@ -42,8 +42,7 @@ class AppRouter extends _i1.RootStackRouter {
   };
 
   @override
-  List<_i1.RouteConfig> get routes =>
-      [
+  List<_i1.RouteConfig> get routes => [
         _i1.RouteConfig(IndexRoute.name, path: '/'),
         _i1.RouteConfig(PostRoute.name, path: '/post'),
         _i1.RouteConfig(ThreadListRoute.name, path: '/threads'),
