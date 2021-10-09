@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:otolog/app.dart';
 
 class ThreadPage extends HookWidget {
   const ThreadPage({Key? key}) : super(key: key);
@@ -13,11 +14,33 @@ class ThreadPage extends HookWidget {
       body: Column(
         children: [
           Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // TODO(k-shir0): 部屋名
-              const Text('2ヶ月前にコメント追加 [icon]2'),
-              const Text('部屋名'),
-              const Text('100,000'),
+              /// ヘッダー
+              Padding(
+                padding: const EdgeInsets.fromLTRB(16, 32, 16, 32),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Text(
+                          '2ヶ月前にコメント追加',
+                          style: AppTheme.threadPageCaptionText,
+                        ),
+                        const SizedBox(width: 8),
+                        Text(
+                          '2件',
+                          style: AppTheme.threadPageCaptionText,
+                        ),
+                      ],
+                    ),
+                    Text('部屋名', style: AppTheme.threadPageHeaderText),
+                    const Text('100,000'),
+                  ],
+                ),
+              ),
 
               // TODO(k-shir0): 角を丸くする.
               /// 画像
