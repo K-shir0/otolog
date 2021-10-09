@@ -6,10 +6,11 @@ part 'thread.g.dart';
 
 @freezed
 class Thread with _$Thread {
-  const factory Thread({
+  @Assert('title.isNotEmpty', 'title cannot be empty')
+  factory Thread({
     required String id,
     @Default('') String title,
-    @Default('') String? src,
+    String? src,
   }) = _Thread;
 
   factory Thread.fromJson(Map<String, dynamic> json) => _$ThreadFromJson(json);

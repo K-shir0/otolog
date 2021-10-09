@@ -21,7 +21,7 @@ Thread _$ThreadFromJson(Map<String, dynamic> json) {
 class _$ThreadTearOff {
   const _$ThreadTearOff();
 
-  _Thread call({required String id, String title = '', String? src = ''}) {
+  _Thread call({required String id, String title = '', String? src}) {
     return _Thread(
       id: id,
       title: title,
@@ -129,7 +129,8 @@ class __$ThreadCopyWithImpl<$Res> extends _$ThreadCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Thread with DiagnosticableTreeMixin implements _Thread {
-  const _$_Thread({required this.id, this.title = '', this.src = ''});
+  _$_Thread({required this.id, this.title = '', this.src})
+      : assert(title.isNotEmpty, 'title cannot be empty');
 
   factory _$_Thread.fromJson(Map<String, dynamic> json) =>
       _$$_ThreadFromJson(json);
@@ -139,7 +140,6 @@ class _$_Thread with DiagnosticableTreeMixin implements _Thread {
   @JsonKey(defaultValue: '')
   @override
   final String title;
-  @JsonKey(defaultValue: '')
   @override
   final String? src;
 
@@ -189,8 +189,7 @@ class _$_Thread with DiagnosticableTreeMixin implements _Thread {
 }
 
 abstract class _Thread implements Thread {
-  const factory _Thread({required String id, String title, String? src}) =
-      _$_Thread;
+  factory _Thread({required String id, String title, String? src}) = _$_Thread;
 
   factory _Thread.fromJson(Map<String, dynamic> json) = _$_Thread.fromJson;
 

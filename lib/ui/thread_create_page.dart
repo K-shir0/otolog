@@ -48,7 +48,11 @@ class ThreadCreatePage extends HookWidget {
                   onPressed: () {
                     formKey.currentState?.save();
 
-                    notifier.add(title: titleTextController.text);
+                    try {
+                      notifier.add(title: titleTextController.text);
+                    } on Exception catch (e) {
+                      print(e);
+                    }
                   },
                   child: const SizedBox(
                     width: double.infinity,

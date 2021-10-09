@@ -33,9 +33,7 @@ const $AsyncEntity = _$AsyncEntityTearOff();
 /// @nodoc
 mixin _$AsyncEntity<T> {
   T? get entity => throw _privateConstructorUsedError;
-
   FetchStatus get fetch => throw _privateConstructorUsedError;
-
   Object? get error => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -48,7 +46,6 @@ abstract class $AsyncEntityCopyWith<T, $Res> {
   factory $AsyncEntityCopyWith(
           AsyncEntity<T> value, $Res Function(AsyncEntity<T>) then) =
       _$AsyncEntityCopyWithImpl<T, $Res>;
-
   $Res call({T? entity, FetchStatus fetch, Object? error});
 }
 
@@ -58,7 +55,6 @@ class _$AsyncEntityCopyWithImpl<T, $Res>
   _$AsyncEntityCopyWithImpl(this._value, this._then);
 
   final AsyncEntity<T> _value;
-
   // ignore: unused_field
   final $Res Function(AsyncEntity<T>) _then;
 
@@ -88,7 +84,6 @@ abstract class _$AsyncEntityCopyWith<T, $Res>
   factory _$AsyncEntityCopyWith(
           _AsyncEntity<T> value, $Res Function(_AsyncEntity<T>) then) =
       __$AsyncEntityCopyWithImpl<T, $Res>;
-
   @override
   $Res call({T? entity, FetchStatus fetch, Object? error});
 }
@@ -186,13 +181,10 @@ abstract class _AsyncEntity<T> implements AsyncEntity<T> {
 
   @override
   T? get entity => throw _privateConstructorUsedError;
-
   @override
   FetchStatus get fetch => throw _privateConstructorUsedError;
-
   @override
   Object? get error => throw _privateConstructorUsedError;
-
   @override
   @JsonKey(ignore: true)
   _$AsyncEntityCopyWith<T, _AsyncEntity<T>> get copyWith =>

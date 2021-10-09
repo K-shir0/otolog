@@ -28,6 +28,7 @@ class ThreadsController extends StateNotifier<AsyncEntity<List<Thread>>>
   Future<void> initData() async {
     state = state.copyWith(fetch: FetchStatus.loading);
 
+    /// スレッドのデータを取得
     state = AsyncEntity(
       entity: await getThreadUseCase(),
       fetch: FetchStatus.idle,
@@ -35,23 +36,13 @@ class ThreadsController extends StateNotifier<AsyncEntity<List<Thread>>>
   }
 
   void add({required String title}) {
-    state = state.copyWith(fetch: FetchStatus.loading);
-
     /// スレッドを作成.
-    try {
-      final thread =
-          createThreadUseCase(CreateThreadUseCaseParam(title: title));
+    final thread = createThreadUseCase(CreateThreadUseCaseParam(title: title));
 
-      /// 状態に反映.
-      state = state.copyWith(
-        entity: [...?state.entity, thread],
-        fetch: FetchStatus.idle,
-      );
-    } on Exception catch (e) {
-      state = state.copyWith(
-        error: e,
-        fetch: FetchStatus.idle,
-      );
-    }
+    /// 状態に反映.
+    state = state.copyWith(
+      entity: [...?state.entity, thread],
+      fetch: FetchStatus.idle,
+    );
   }
 }

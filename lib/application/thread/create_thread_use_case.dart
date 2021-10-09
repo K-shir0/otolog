@@ -39,10 +39,6 @@ class CreateThreadUseCase
   Thread call(CreateThreadUseCaseParam param) {
     const _uuid = Uuid();
 
-    if (param.title.isEmpty) {
-      throw Exception('error with no title set');
-    }
-
     final thread = Thread(
       id: _uuid.v4(),
       title: param.title,

@@ -17,6 +17,6 @@ class InMemoryThreadDatabase extends ThreadRepository {
 
   @override
   Future<List<Thread>> getThreads() async {
-    return _threads;
+    return [..._threads];
   }
 }
